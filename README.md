@@ -16,6 +16,10 @@ Supported mini breadboards:
 * 45.5 mm x 34.5 mm, without joints
 * 46 mm x 36 mm, with joints (4 mm x 1.2 mm)
 
+The tested breadboards have 17 pins. As such, you cannot use development
+boards with more than 17 pins in a single column. Some ESP32 boards have 19
+pins x 2.
+
 ## Requirements
 
 - FreeCAD

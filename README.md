@@ -1,5 +1,7 @@
 # Mini breadboard holder
 
+A mini breadboard holder.
+
 ![Screenshot](assets/two-mini-breadboards.png)
 
 Some cheap `ESP32` development boards are fat. They use 9 columns on a
@@ -40,7 +42,7 @@ PLA works fine.
 
 Infill 20%. It rarely matters.
 
-0.2 mm layer hight is recommended.
+0.2 mm layer height is recommended.
 
 ## Authors
 

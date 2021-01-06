@@ -5,8 +5,7 @@ import Mesh
 
 FreeCAD.open(u"src/two-mini-breadboards.FCStd")
 __objs__=[]
-__objs__.append(FreeCAD.getDocument("two_mini_breadboards").getObject("Body"))
+__objs__.append(FreeCAD.getDocument("two_mini_breadboards").getObject("Cut"))
 Mesh.export(__objs__,u"two-mini-breadboards.stl")
 
 del __objs__
-App.closeDocument("two_mini_breadboards")

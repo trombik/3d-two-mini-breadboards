@@ -5,7 +5,7 @@ WRKSRC=	src
 TARGETS=    two-mini-breadboards.stl two-mini-breadboards.png
 
 two-mini-breadboards.stl:	${WRKSRC}/two-mini-breadboards.FCStd
-	PYTHONPATH="${PYTHONPATH}" ${PYTHON} build.FCMacro
+	PYTHONPATH="${PYTHONPATH}" ${PYTHON} export-stl.FCMacro
 
 all: ${TARGETS}
 

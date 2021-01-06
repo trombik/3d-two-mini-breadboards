@@ -42,7 +42,7 @@ make
 ```
 ## Tips
 
-PLA works fine.
+PLA works fine. ABS is not recommended as tolerance matters.
 
 Infill 20%. It rarely matters.
 

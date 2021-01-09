@@ -1,0 +1,38 @@
+---
+name: Build STL files
+on:
+  - pull_request
+  - push
+jobs:
+  build:
+    # XXX use 20.04 for python3. should be replaced with ubuntu-latest when
+    # 20.04 becomes the default.
+    # https://github.com/actions/virtual-environments/issues/1816
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Install dependencies
+        run: |
+          sudo add-apt-repository ppa:freecad-maintainers/freecad-stable
+          sudo apt-get update
+          sudo apt-get install -y freecad freecad-python3 freebsd-buildutils
+
+      - name: Build STL files
+        run: |
+
+          # XXX fixup python module path
+          # https://forum.freecadweb.org/viewtopic.php?t=37099
+          for D in Mod Ext Gui; do
+            (cd /usr/lib/freecad-python3 && sudo ln -s /usr/share/freecad/${D} ${D})
+          done
+          fmake PYTHONPATH=/usr/lib/freecad/lib 2>&1 | tee build.log
+
+          # XXX FreeCAD exits with zero even when failed to load modules
+          if grep -i error build.log; then
+            exit 1
+          fi
+          ls -al *.stl
